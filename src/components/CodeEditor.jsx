@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, Flex, useBreakpointValue } from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
 import LanguageSelector from "./LanguageSelector";
 import { CODE_SNIPPETS } from "../constants";
@@ -20,10 +20,12 @@ const CodeEditor = () => {
     setValue(CODE_SNIPPETS[language]);
   };
 
+  const flexDirection = useBreakpointValue({ base: "column", md: "row" });
+
   return (
     <Box>
-      <HStack spacing={4}>
-        <Box w="50%">
+      <Flex direction={flexDirection} spacing={4}>
+        <Box w={{ base: "100%", md: "50%" }}>
           <LanguageSelector language={language} onSelect={onSelect} />
           <Editor
             options={{
@@ -41,8 +43,9 @@ const CodeEditor = () => {
           />
         </Box>
         <Output editorRef={editorRef} language={language} />
-      </HStack>
+      </Flex>
     </Box>
   );
 };
+
 export default CodeEditor;
