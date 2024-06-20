@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, Text, useToast } from "@chakra-ui/react";
 import { executeCode } from "../api";
 
@@ -7,6 +7,10 @@ const Output = ({ editorRef, language }) => {
   const [output, setOutput] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    setOutput(null)
+  }, [language]);
 
   const runCode = async () => {
     const sourceCode = editorRef.current.getValue();
