@@ -9,7 +9,7 @@ const Output = ({ editorRef, language }) => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    setOutput(null)
+    setOutput(null);
   }, [language]);
 
   const runCode = async () => {

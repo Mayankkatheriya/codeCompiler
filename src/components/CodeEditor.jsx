@@ -32,6 +32,14 @@ const CodeEditor = () => {
               minimap: {
                 enabled: true,
               },
+              fontSize: 15,
+              formatOnPaste: true,
+              tabSize: 4,
+              scrollBeyondLastLine: false,
+              automaticLayout: true,
+              selectOnLineNumbers: true,
+              colorDecorators: true,
+              wordWrap: "bounded",
             }}
             height="75vh"
             theme="vs-dark"
